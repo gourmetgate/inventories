@@ -18,3 +18,15 @@ service:
 ingress:
   ingress-name: test-gourmetgate-ingress
   host: 'app.gourmetgate.ch'
+
+postgres:
+  db-name: gourmetgate-test
+  pod-name: postgres-test
+  deployment-name: postgres-deployment-test
+  service-name: postgres-service-test
+  pv-name: postgres-test-pv
+  pvc-name: postgres-test-pvc
+  volume-name: postgres-volume-test
+  statefulset-name: postgres-test-statefulset
+  port-name: postgres-test-port
+  image: postgres:17.2
