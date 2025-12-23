@@ -1,0 +1,33 @@
+version: 1.0.1
+namespace: groutmetgate-test
+app:
+  appName: test-backend
+deployment:
+  deploymentName: test-backend-deployment
+  replicas: 1
+  containerName: test-backend
+  image: ghcr.io/gourmetgate/gourmetgate:{{.Valus.version}}
+  env:
+    databaseUrl: jdbc:postgresql://localhost:15432/gourmetgate
+    databaseShema: public
+    databaseUser: postgres
+secret: gourmetgate-test-secret
+pull-secret: gourmetgate-pull-secret
+service:
+  serviceName: test-backend-service
+ingress:
+  ingressName: test-gourmetgate-ingress
+  host: 'app.gourmetgate.ch'
+
+postgresql:
+  enabled: true
+  auth:
+    database: gourmetgate-test
+    username: gourmetgate
+    existingSecret: gourmetgate-test-secret
+    secretKeys:
+      adminPasswordKey: db-password
+  primary:
+    persistence:
+      enabled: true
+      size: 8Gi

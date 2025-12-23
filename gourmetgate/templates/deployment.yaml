@@ -1,34 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Values.deployment.deployment-name }}
+  name: {{ .Values.deployment.deploymentName }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
-      app: {{ .Values.app.app-name }}
+      app: {{ .Values.app.appName }}
   template:
     metadata:
       labels:
-        app: {{ .Values.app.app-name }}
+        app: {{ .Values.app.appName }}
     spec:
       containers:
-        - name: {{ .Values.deployment.container-name }}
+        - name: {{ .Values.deployment.containerName }}
           image: {{ .Values.deployment.image }}
           ports:
             - containerPort: 8080
           env:
             - name: DATABASE_URL
-              value: {{ .Values.deployment.env.database-url }}
+              value: {{ .Values.deployment.env.databaseUrl }}
             - name: DATABASE_SHEMA
-              value: {{ .Values.deployment.env.database-shema }}
+              value: {{ .Values.deployment.env.databaseShema }}
             - name: POSTGRES_USER
-              value: {{ .Values.deployment.env.database-user }}
+              value: {{ .Values.deployment.env.databaseUser }}
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .values.secret }}
+                  name: {{ .Values.secret }}
                   key: db-password
       imagePullSecrets:
-        - name: {{ .Values.pull-secret }}
+        - name: {{ .Values.pullSecret }}
