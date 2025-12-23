@@ -6,7 +6,7 @@ deployment:
   deploymentName: test-backend-deployment
   replicas: 1
   containerName: test-backend
-  image: ghcr.io/gourmetgate/gourmetgate:{{.Valus.version}}
+  image: ghcr.io/gourmetgate/gourmetgate
   env:
     databaseUrl: jdbc:postgresql://localhost:15432/gourmetgate
     databaseShema: public
@@ -20,13 +20,16 @@ ingress:
   host: 'app.gourmetgate.ch'
 
 postgresql:
+  image:
+    repository: bitnamilegacy/postgresql
   enabled: true
   auth:
     database: gourmetgate-test
     username: gourmetgate
     existingSecret: gourmetgate-test-secret
     secretKeys:
-      adminPasswordKey: db-password
+      adminPasswordKey: dbAdminPassword
+      userPasswordKey: dbPassword
   primary:
     persistence:
       enabled: true
