@@ -1,5 +1,5 @@
 version: 1.0.1
-namespace: groutmetgate-test
+namespace: gourmetgate-test
 app:
   appName: test-backend
 deployment:
