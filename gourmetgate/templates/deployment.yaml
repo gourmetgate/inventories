@@ -29,6 +29,6 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: {{ .Values.secret }}
-                  key: db-password
+                  key: dbPassword
       imagePullSecrets:
         - name: {{ .Values.pullSecret }}

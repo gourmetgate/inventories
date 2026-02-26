@@ -19,17 +19,6 @@ ingress:
   ingressName: test-gourmetgate-ingress
   host: 'test.gouga.app'
 
-postgresql:
-  image:
-    repository: bitnamilegacy/postgresql
-  enabled: true
-  auth:
-    database: gourmetgate-test
-    username: gourmetgate
-    existingSecret: gourmetgate-test-secret
-    secretKeys:
-      adminPasswordKey: dbAdminPassword
-      userPasswordKey: dbPassword
   primary:
     persistence:
       enabled: true
