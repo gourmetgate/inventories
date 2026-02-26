@@ -17,7 +17,7 @@ service:
   serviceName: test-backend-service
 ingress:
   ingressName: test-gourmetgate-ingress
-  host: 'app.gourmetgate.ch'
+  host: 'test.gouga.app'
 
 postgresql:
   image:
