@@ -31,4 +31,4 @@ spec:
                   name: {{ .Values.secret }}
                   key: dbPassword
       imagePullSecrets:
-        - name: {{ .Values.pull-secret }}
+        - name: {{ .Values.pullSecret }}

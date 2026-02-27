@@ -12,7 +12,7 @@ deployment:
     databaseShema: public
     databaseUser: postgres
 secret: gourmetgate-test-secret
-pull-secret: gourmetgate-pull-secret
+pullSecret: gourmetgate-pull-secret
 service:
   serviceName: test-backend-service
 ingress:
